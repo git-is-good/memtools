@@ -134,7 +134,7 @@ memcheck_free_do(void *ptr, const char *filename, size_t lineno, const char *fun
     if ( ptr ){
         memcheck_source_t *old = findValueByKey(mem_dict, ptr);
         if ( !old ){
-            _memcheck_abnormal_detected("memcheck:%s:%lu:%s: attempt to realloc not-malloced addr: %p\n", 
+            _memcheck_abnormal_detected("memcheck:%s:%lu:%s: attempt to free not-malloced addr: %p\n", 
                     filename, lineno, funcname, ptr);
         }
         free(old);
